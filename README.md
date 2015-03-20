@@ -13,7 +13,9 @@ separate app and ops teams to use the box.
 
 Configuration
 -------------
-* `app_user`: The non-privileged username.
+* `dev_keys`: The path+filename of the `authorized_keys` for the `non_priv_user`.
+* `ops_keys`: The path+filename of the `authorized_keys` for the `ops_user`.
+* `non_priv_user`: The non-privileged username.
 * `ops_user`: The sudo-privileged username intented for operations.
 
 To Do
@@ -22,3 +24,4 @@ To Do
 * Initialize a ~/bin directory
 * Allow for finer-graned user settings (home dir, primary/secondary groups,
   etc)
+* Fix the busted app/dev/non_priv naming convention
