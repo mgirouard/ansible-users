@@ -13,15 +13,28 @@ separate app and ops teams to use the box.
 
 Configuration
 -------------
-* `dev_keys`: The path+filename of the `authorized_keys` for the `non_priv_user`.
-* `ops_keys`: The path+filename of the `authorized_keys` for the `ops_user`.
-* `non_priv_user`: The non-privileged username.
-* `ops_user`: The sudo-privileged username intented for operations.
+This role expects there to be a `users` array defined which can have any of the
+following keys defined:
+
+* `username`: The name of the user.
+* `keys_generate`: Whether or not to generate keys
+* `keys_bits`: Number of bits to include in SSH key
+* `is_admin`: Whether or not the user will have passwordless sudo privs
+
+The only required key is the `username` key. 
+
+### Example
+
+    users: [
+      { username: 'foo' },
+      { username: 'bar', keys_generate: true },
+      { username: 'baz', keys_generate: true, keys_bits: 4086 },
+      { username: 'bif', keys_authorized: "~/.ssh/id_rsa.pub" },
+      { username: 'thud', is_admin: true }
+    ]
 
 To Do
 -----
-* Allow for additional users to be created
 * Initialize a ~/bin directory
 * Allow for finer-graned user settings (home dir, primary/secondary groups,
   etc)
-* Fix the busted app/dev/non_priv naming convention
