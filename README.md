@@ -1,15 +1,8 @@
 User Role for Ansible
 =====================
 
-A [somewhat] opinionated Ansible role for automating users.
-
-This assumes that there will be two initial users: an ops user and a regular
-(non-privileged) user. The primary difference between the two is that the ops
-user will have unrestricted sudo access. These users have keypairs generated
-automatically for them.
-
-Each user has different `authorized_keys` that will be deployed allowing for
-separate app and ops teams to use the box.
+Initializes users within a system. Supports unlimited users, key management,
+and sudo capabilities.
 
 Configuration
 -------------
